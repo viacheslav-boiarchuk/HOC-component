@@ -16,6 +16,18 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+
+		fetch('http://www.sportstats.com/basketball/usa/nba-2015-2016/results/')
+			.then(data => data.json()).then(
+			data => {
+				console.log(data);
+				return (data)
+			},
+			data => {
+				throw new Error(data);
+			}
+		);
+
 		this.props.loadWords();
 	}
 
